@@ -716,6 +716,11 @@ void py_init_module_imgui_node_editor(nb::module_& m)
         nb::arg("zoom_in") = false, nb::arg("duration") = -1,
         "Moves the view to the selected nodes, as Shift+F does (zoomIn: zoom in too, to fit them).");
 
+    m.def("navigate_to_rect",
+        ax::NodeEditor::NavigateToRect,
+        nb::arg("min"), nb::arg("max"), nb::arg("duration") = -1,
+        "Shows the canvas rect [min, max] exactly: centred, zoomed to fill the editor (no margin, aspect ratio kept), any zoom.");
+
     m.def("show_node_context_menu",
         ax::NodeEditor::ShowNodeContextMenu,
         nb::arg("node_id"),

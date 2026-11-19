@@ -19,7 +19,7 @@
 	branch = imgui_bundle
 [submodule "external/imgui-node-editor/imgui-node-editor"]
 	path = external/imgui-node-editor/imgui-node-editor
-	url = https://github.com/pthom/imgui-node-editor.git
+	url = https://github.com/StateOff/imgui-node-editor.git
 	branch = imgui_bundle
 [submodule "external/imgui_tex_inspect/imgui_tex_inspect"]
 	path = external/imgui_tex_inspect/imgui_tex_inspect

@@ -1086,6 +1086,11 @@ def navigate_to_selection(zoom_in: bool = False, duration: float = -1) -> None:
     """Moves the view to the selected nodes, as Shift+F does (zoomIn: zoom in too, to fit them)."""
     pass
 
+# IMGUI_NODE_EDITOR_API void NavigateToRect(const ImVec2& min, const ImVec2& max, float duration = -1);    /* original C++ signature */
+def navigate_to_rect(min: ImVec2Like, max: ImVec2Like, duration: float = -1) -> None:
+    """Shows the canvas rect [min, max] exactly: centred, zoomed to fill the editor (no margin, aspect ratio kept), any zoom."""
+    pass
+
 # Shows context menu for node, link or background
 # Typical usage (this should happen inside ed::Begin/ed::End block):
 #        ed::Begin();
