@@ -191,6 +191,8 @@ def resolve_transclusions(
 
 ####################    <generated_from:rich_md.h>    ####################
 
+# The library's version: the release tag, and the CMake project's VERSION
+
 # =================================================================================================================
 #                                        Main API: Rendering
 # =================================================================================================================
@@ -545,6 +547,11 @@ class MarkdownCallbacks:
     # imgui-node-editor), return False: code blocks are then rendered as inline code.
     # ImmApp fills it when the node editor is available.
     can_use_child_windows: Callable[[], bool]
+
+    # std::function<void(int offset)> OnTaskToggle;    /* original C++ signature */
+    # OnTaskToggle: a task box ("- [ ]" / "- [x]") was clicked, with the offset of its mark (the character between
+    # the brackets) in the text given to RenderRaw(). Task boxes are clickable only when this callback is set.
+    on_task_toggle: Callable[[int], None]
 
     # std::function<void(const std::string& target)> OnWikiLink;    /* original C++ signature */
     # OnWikiLink: a wikilink [[target]] or [[target|label]] was clicked. Wikilinks are parsed only

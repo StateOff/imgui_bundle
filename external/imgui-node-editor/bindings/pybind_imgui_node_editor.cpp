@@ -830,6 +830,14 @@ void py_init_module_imgui_node_editor(nb::module_& m)
     m.def("get_mouse_pos_on_canvas",
         ax::NodeEditor::GetMousePosOnCanvas, " The mouse position in CANVAS coords, anywhere between Begin() and End(). ImGui::GetMousePos() gives the same, except\n where the editor is suspended (after Suspend(), and in the create action once QueryNewLink() or QueryNewNode()\n returned True): it then gives SCREEN coords.");
 
+    m.def("push_content_width",
+        ax::NodeEditor::PushContentWidth,
+        nb::arg("width"),
+        " Inside a node, the available width is `width` from the cursor until PopContentWidth(): wrapped text, separators,\n tables, GetContentRegionAvail() and the default item width (Config::ForceWindowContentWidthToNodeWidth, for one item).");
+
+    m.def("pop_content_width",
+        ax::NodeEditor::PopContentWidth, "Restores the available width of before PushContentWidth()");
+
     m.def("get_node_count",
         ax::NodeEditor::GetNodeCount, "Returns number of submitted nodes since Begin() call");
     // # endif

@@ -79,5 +79,5 @@
 	url = https://github.com/pthom/imspinner.git
 [submodule "external/imgui_rich_md/imgui_rich_md"]
 	path = external/imgui_rich_md/imgui_rich_md
-	url = https://github.com/pthom/imgui_rich_md.git
+	url = https://github.com/StateOff/imgui_rich_md.git
 	branch = main

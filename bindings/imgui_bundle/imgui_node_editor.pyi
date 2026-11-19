@@ -1306,6 +1306,18 @@ def get_mouse_pos_on_canvas() -> ImVec2:
     """
     pass
 
+# IMGUI_NODE_EDITOR_API void PushContentWidth(float width);    /* original C++ signature */
+def push_content_width(width: float) -> None:
+    """Inside a node, the available width is `width` from the cursor until PopContentWidth(): wrapped text, separators,
+    tables, GetContentRegionAvail() and the default item width (Config::ForceWindowContentWidthToNodeWidth, for one item).
+    """
+    pass
+
+# IMGUI_NODE_EDITOR_API void PopContentWidth();     /* original C++ signature */
+def pop_content_width() -> None:
+    """Restores the available width of before PushContentWidth()"""
+    pass
+
 # IMGUI_NODE_EDITOR_API int GetNodeCount();                                    /* original C++ signature */
 def get_node_count() -> int:
     """Returns number of submitted nodes since Begin() call"""
