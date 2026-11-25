@@ -115,7 +115,15 @@ function(add_imgui_bundle_bindings)
         endif()
     endif()
 
-    nanobind_add_module(${python_native_module_name} ${python_module_sources})
+    # On a free-threaded Python (3.13t / 3.14t), FREE_THREADED declares the module
+    # safe without the GIL - else importing it turns the GIL back on for the whole
+    # process. Opt-in: ImGui's context is one global, so the application must
+    # call it from one thread (as a GUI does). Without effect on a GIL build.
+    if(IMGUI_BUNDLE_PYTHON_FREE_THREADED)
+        nanobind_add_module(${python_native_module_name} FREE_THREADED ${python_module_sources})
+    else()
+        nanobind_add_module(${python_native_module_name} ${python_module_sources})
+    endif()
 
     # Propagate WITH flags to bindings so preprocessor conditionals work
     if(NOT IMGUI_BUNDLE_WITH_HELLO_IMGUI)
